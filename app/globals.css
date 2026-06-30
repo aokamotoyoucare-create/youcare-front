@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+@layer components {
+  .wrap {
+    @apply mx-auto max-w-content px-6 sm:px-8;
+  }
+  .eyebrow {
+    @apply text-[12px] font-bold tracking-[0.22em] text-gold uppercase;
+  }
+  .h-serif {
+    @apply font-serif font-bold leading-[1.32] text-ink;
+  }
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-full bg-gold px-7 py-3.5 text-[15px] font-bold text-white transition-colors hover:bg-gold2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center rounded-full border border-sage bg-transparent px-7 py-3.5 text-[15px] font-bold text-ever transition-colors hover:bg-mist focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ever;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes draw {
+    from { stroke-dashoffset: 1000; }
+    to { stroke-dashoffset: 0; }
+  }
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .draw-line { stroke-dasharray: 1000; animation: draw 2.4s ease-out forwards; }
+  .rise { animation: rise 0.7s ease-out both; }
+}
